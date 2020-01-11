@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HILIH KINT~~</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+<body>
+    <div class="container-fluid fill-height bg-primary"
+        style="display: flex; height: 100vh; align-items: center; justify-content: center;">
+
+        <div class="mx-auto" style="width: 400px; box-shadow: 7px 5px 20px rgba(0, 0, 0, 0.23);">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">HILIH TRANSLATE</h5>
+                    <hr>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">HALAH</label>
+                        <input type="text" class="form-control" id="text1" aria-describedby="text1" placeholder="">
+                    </div>
+                    <!-- <button class="btn btn-outline-success" id="switch"><i class="fas fa-sync fa-2x"></i></button> -->
+                    <div class="form-group mt-2">
+                        <label for="exampleInputEmail1">HILIH</label>
+                        <input type="text" class="form-control" id="text2" aria-describedby="text2" placeholder=""
+                            readonly>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class=" ml-auto p-2 bd-highlight">
+                        <button type="button" class="btn btn-primary btn-sm ml-auto p-2 btn-help"
+                            onclick="kopi('#text2')">Copy
+                            !</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script>
+        $('#exc').on('click', function () {
+            hilih()
+        })
+
+        $('#text1').on('keyup', function () {
+            hilih()
+        })
+
+        function hilih() {
+            const halah = document.getElementById("text1").value;
+            let cilik = halah.toLowerCase();
+            let hilih = cilik.replace(/a|i|u|e|o/g, "i");
+            document.getElementById("text2").value = hilih;
+        }
+
+        function kopi(element) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(element).val()).select();
+            document.execCommand("copy");
+            $temp.remove();
+        }
+
+        $('#switch').on('click', function () {
+            $('#switch i').addClass('fa-spin');
+            setTimeout(function () {
+                $('#switch i').removeClass('fa-spin');
+            }, 1000)
+        })
+    </script>
+
+</body>
+
+</html>
